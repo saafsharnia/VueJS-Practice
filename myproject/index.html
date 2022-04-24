@@ -4,9 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>myproject</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <script type = "text/javascript" src = "js/vue.js"></script>
   </head>
   <body>
     <div id="app"></div>
+    <div id="vue_det">
+      <h1>FirstName : {{fname}}</h1>
+      <h1>LastName : {{lname}}</h1>
+      <h1>{{myDetails()}}</h1>
+    </div>
     <!-- built files will be auto injected -->
+    <script type = "text/javascript">
+      var _obj = { fname: "sa", lname: "af"}
+      // direct instance creation
+      var vm = new Vue({
+        el: "#vue_det",
+        data: _obj,
+        methods: {
+            myDetails : function() {
+              return "I am "+this.fname +" "+ this.lname;
+            }
+        }
+      });
+      console.log(vm.fname);
+      console.log(vm.$data);
+      console.log(vm.$data.fname);
+   </script>
   </body>
 </html>
